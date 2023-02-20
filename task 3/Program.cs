@@ -23,4 +23,4 @@ int y1 = InputInt ("Input y1 coord");
 int x2 = InputInt ("Input x2 coord");
 int y2 = InputInt ("Input y2 coord");
 
-System.Console.WriteLine($"Distance between coords is: {distance(x1, y1, x2, y2)}");
+System.Console.WriteLine($"Distance between coords is: {distance(x1, y1, x2, y2):f2}"); // f2 - ограничитель количества символов после запятой
