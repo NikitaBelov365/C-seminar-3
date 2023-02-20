@@ -1,7 +1,8 @@
 ﻿int InputInt(string message)
 {
     System.Console.WriteLine($"{message}>");
-    if (int.TryParse(Console.ReadLine(), out int value))
+    int value;
+    if (int.TryParse(Console.ReadLine(), out value))
     {
         return value;
     }
@@ -14,25 +15,26 @@ bool ValidateQuoter(int quoterNumber)
 {
     if (quoterNumber > 4 || quoterNumber < 1)
     {
-        System.Console.WriteLine(("There is no quoter after 4 or less than 1, sorry."));
+        System.Console.WriteLine("There is no quoter after 4 or less than 1, sorry.");
         return false;
     }
     return true;
 }
 
-string GetCoordinateInterval(int quoterNumber) 
+(int, int) GetCoordinateInterval(int quoterNumber) 
 {
     switch(quoterNumber)
     {
-        case 1: return "x > 0, y > 0";
-        case 2: return "x < 0, y > 0";
-        case 3: return "x < 0, y < 0";
-        default: return "x > 0, y < 0";
+        case 1: return (1, 1);
+        case 2: return (-1, 1);
+        case 3: return (-1, -1);
+        default: return (1, -1);
     }
 }
 
 int quoterInput = InputInt("Input quoter number");
 if (ValidateQuoter(quoterInput))
 {
-    System.Console.WriteLine($"Coordinates of {quoterInput} quoter is: {GetCoordinateInterval}");
+    (int x, int y) = GetCoordinateInterval(quoterInput);
+    System.Console.WriteLine($"Coordinates of {quoterInput} quoter is: {x}, {y}");
 }
